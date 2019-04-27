@@ -18,16 +18,26 @@ submit.on("click", function(){
     // Get the value property of the input element
     var datetimeInputValue = datetimeInputElement.property("value")
 
-    console.log(datetimeInputValue);
-
     // Determine the new data that has been filtered based on the input date
-    // the var is list of dictionaries
+    // the filtered data is list of dictionaries
     var datetimeFilteredData = tableData.filter(entry => entry.datetime === datetimeInputValue);
 
     // render the filtered data into the HTML table
-
-
-    console.log(datetimeFilteredData);
+    var tbody = d3.select("tbody");
+    datetimeFilteredData.forEach(function(ufo_sighting) {
+        
+        // Use d3 to append one table row `tr` for each ufo_sighting object 
+        var row = tbody.append("tr");
+        
+        // Loop through each element of the ufo_sighting dictionary
+        Object.entries(ufo_sighting).forEach(function([key, value]) {
+            // Use d3 to append 1 cell per ufo_sigthing value 
+            var cell = row.append("td");
+            
+            // use d3 to fill in each cell with ufo_sighting values
+            cell.text(value);
+        });
+    });
 
 
 
