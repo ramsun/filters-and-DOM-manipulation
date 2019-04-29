@@ -37,8 +37,19 @@
                     <ul class="list-group" id="filters">
                       <li class="filter list-group-item">
                         <label for="date">Enter a Date</label>
-                        <!-- Use D3 to collect the entry in this input box -->
-                        <input class="form-control" id="datetime" type="text" placeholder="1/11/2010">
+                        <input class="form-control" id="datetime" type="text" placeholder="1/1/2010">
+                        
+                        <label for="date">Enter a City</label>
+                        <input class="form-control" id="city" type="text" placeholder="benton">
+
+                        <label for="date">Enter a State</label>
+                        <input class="form-control" id="state" type="text" placeholder="ar">
+
+                        <label for="date">Enter a Country</label>
+                        <input class="form-control" id="country" type="text" placeholder="us">                        
+
+                        <label for="date">Enter a Shape</label>
+                        <input class="form-control" id="shape" type="text" placeholder="circle">     
                       </li>
                     </ul>
                   </div>
@@ -73,6 +84,7 @@
       <span class="bottom">UFO Sightings</span>
     </footer>
   </div>
+  <!-- D3 dependency and JS files -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
   <script src="static/js/data.js"></script>
   <script src="static/js/app.js"></script>
