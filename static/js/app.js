@@ -1,6 +1,6 @@
 //Logic for Filter Table button.   
 
-// create an object from data.js
+// Create an object from data.js
 var tableData = data;
 
 /* 
@@ -48,7 +48,7 @@ function check_fields_and_filter(){
         return filteredData;
     }
     else if(shapeValue.length != 0){
-        var filteredData = tableData.filter(entry => entry.country === shapeValue);
+        var filteredData = tableData.filter(entry => entry.shape === shapeValue);
         return filteredData;
     }
     // Show a pop-up alert on the browser if the button was clicked without any filters present
@@ -57,22 +57,21 @@ function check_fields_and_filter(){
     }
 }
 
-// select the button from the webpage
-// d3.select can find elemenets by their class(".CLASSNAME") or id("#IDNAME")
+// Select the button from the webpage
+// S3.select can find elemenets by their class(".CLASSNAME") or id("#IDNAME")
 var submit = d3.select("#filter-btn");
 
-// create a function based on the click event
 // Event Handler
 submit.on("click", function(){
 
     // Prevent the page from refreshing
     d3.event.preventDefault();
 
-    // Determine the new data that has been filtered based on the input
-    // the filtered data is list of dictionaries
+    // Check all of the input fields and apply the filter according to check_fields_and_filter() function
+    // The filtered data is list of dictionaries
     filteredData = check_fields_and_filter();
 
-    // render the filtered data into the HTML table
+    // Render the filtered data into the HTML table
     var tbody = d3.select("tbody");
     filteredData.forEach(function(ufo_sighting) {
         
@@ -83,7 +82,7 @@ submit.on("click", function(){
         Object.entries(ufo_sighting).forEach(function([key, value]) {
             // Use d3 to append 1 cell per ufo_sigthing value (create collumns)
             var cell = row.append("td");
-            // use d3 to fill in each cell with ufo_sighting values (text)
+            // Use d3 to fill in each cell with ufo_sighting values (text)
             cell.text(value);
         });
     });
