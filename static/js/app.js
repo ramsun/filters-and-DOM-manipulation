@@ -58,7 +58,7 @@ function check_fields_and_filter(){
 }
 
 // Select the button from the webpage
-// S3.select can find elemenets by their class(".CLASSNAME") or id("#IDNAME")
+// D3.select can find elemenets by their class(".CLASSNAME") or id("#IDNAME")
 var submit = d3.select("#filter-btn");
 
 // Event Handler
